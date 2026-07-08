@@ -1,0 +1,188 @@
+@import './fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#050816] text-[#F8FAFC] font-sans overflow-x-hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #00E5FF #050816;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050816;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #00E5FF;
+    border-radius: 3px;
+  }
+}
+
+/* Premium AI Startup Typography Classes */
+.font-hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+.font-section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.font-body-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(248, 250, 252, 0.75);
+}
+
+.font-nav-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.font-button-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.font-stat-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism Panels and Cards */
+.glass-panel {
+  background: rgba(11, 17, 32, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+/* Cyberpunk and Neon Aesthetics */
+.text-neon {
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.6), 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+.text-neon-glow {
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.7), 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.border-neon {
+  border-color: #00E5FF;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+.border-neon-glow {
+  border-color: #3B82F6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Gradients and Animations */
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4), inset 0 0 5px rgba(0, 229, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.8), inset 0 0 10px rgba(0, 229, 255, 0.4);
+  }
+}
+
+.neon-btn {
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.neon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.neon-btn:hover::before {
+  left: 100%;
+}
+
+.neon-glow-btn {
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+}
+
+.neon-glow-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.8);
+  background-color: #00E5FF;
+  color: #050816;
+}
+
+/* Gradient text */
+.gradient-text-neon {
+  background: linear-gradient(135deg, #00E5FF 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Blueprint Grid animation and style rules */
+.blueprint-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+  animation: gridDrift 20s linear infinite;
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to { background-position: 40px 40px; }
+}
