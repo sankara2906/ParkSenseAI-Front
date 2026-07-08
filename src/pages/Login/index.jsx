@@ -461,7 +461,7 @@ export default function Login({ navigate }) {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-[1450px] min-h-[550px] lg:height-[850px] lg:h-[850px] bg-[#0A1224]/40 border border-[#00D9FF]/15 rounded-[28px] shadow-[0_30px_70px_rgba(0,0,0,0.6)] backdrop-blur-2xl flex flex-col lg:flex-row overflow-hidden relative z-10"
+        className="w-full max-w-[1450px] min-h-[550px] lg:height-[850px] lg:h-[850px] bg-[#0A1224]/40 border border-[#00D9FF]/15 rounded-[28px] shadow-[0_30px_70px_rgba(0,0,0,0.6)] backdrop-blur-2xl flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden relative z-10"
       >
         
         {/* ── LEFT PANEL (45% WIDTH): LOGIN AUTHENTICATION ── */}
