@@ -380,9 +380,10 @@ export default function SmartCity3D() {
         />
 
         {/* Cinematic illumination */}
-        <ambientLight intensity={0.4} color="#1b253b" />
-        <pointLight position={[3.5, 6, 3.5]} intensity={2.8} color="#00D9FF" castShadow />
-        <pointLight position={[-3.5, 3, -3.5]} intensity={1.0} color="#8B5CF6" />
+        <ambientLight intensity={1.8} color="#ffffff" />
+        <directionalLight position={[0, 10, 0]} intensity={2.5} color="#ffffff" />
+        <pointLight position={[5, 8, 5]} intensity={50} color="#00D9FF" castShadow />
+        <pointLight position={[-5, 5, -5]} intensity={30} color="#8B5CF6" />
         
         {/* Soft glowing stars background */}
         <Stars radius={100} depth={50} count={110} factor={3} saturation={0.5} fade speed={1} />
