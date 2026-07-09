@@ -2,149 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Stars, Html } from '@react-three/drei';
 import * as THREE from 'three';
-
-// 🏎️ 1. Sports Coupe Car Model
-function SportsCoupe({ active, onClick }) {
-  const ref = useRef();
-  useFrame(({ clock }) => {
-    if (ref.current) {
-      ref.current.position.y = (active ? Math.sin(clock.getElapsedTime() * 2.2) * 0.04 : 0);
-    }
-  });
-
-  return (
-    <group ref={ref} onClick={onClick} className="cursor-pointer">
-      {/* Chassis base */}
-      <mesh castShadow>
-        <boxGeometry args={[1.3, 0.12, 0.64]} />
-        <meshStandardMaterial color="#0f172a" roughness={0.1} metalness={0.9} />
-      </mesh>
-      {/* Upper body */}
-      <mesh position={[-0.05, 0.12, 0]} castShadow>
-        <boxGeometry args={[0.8, 0.15, 0.6]} />
-        <meshPhysicalMaterial color="#00D9FF" roughness={0.05} metalness={0.95} clearcoat={1} />
-      </mesh>
-      {/* Windshield */}
-      <mesh position={[0.1, 0.22, 0]}>
-        <boxGeometry args={[0.45, 0.1, 0.52]} />
-        <meshPhysicalMaterial color="#00FFC6" transparent opacity={0.3} roughness={0.02} />
-      </mesh>
-      {/* Spoiler */}
-      <mesh position={[-0.6, 0.15, 0]}>
-        <boxGeometry args={[0.1, 0.05, 0.68]} />
-        <meshBasicMaterial color="#00D9FF" />
-      </mesh>
-      {/* Headlights */}
-      <mesh position={[0.66, 0.03, 0.18]}>
-        <boxGeometry args={[0.02, 0.02, 0.08]} />
-        <meshBasicMaterial color="#ffffff" />
-      </mesh>
-      <mesh position={[0.66, 0.03, -0.18]}>
-        <boxGeometry args={[0.02, 0.02, 0.08]} />
-        <meshBasicMaterial color="#ffffff" />
-      </mesh>
-      {/* Wheels */}
-      {[-0.35, 0.35].map((x, i) => 
-        [-0.32, 0.32].map((z, j) => (
-          <mesh key={`${i}-${j}`} position={[x, -0.06, z]} rotation={[0, 0, Math.PI / 2]}>
-            <cylinderGeometry args={[0.15, 0.15, 0.08, 16]} />
-            <meshStandardMaterial color="#050814" roughness={0.5} />
-          </mesh>
-        ))
-      )}
-      {active && <pointLight position={[0, -0.15, 0]} intensity={1.5} color="#00D9FF" distance={1} />}
-    </group>
-  );
-}
-
-// 🚙 2. EV SUV Car Model
-function EVSUV({ active, onClick }) {
-  const ref = useRef();
-  useFrame(({ clock }) => {
-    if (ref.current) {
-      ref.current.position.y = (active ? Math.sin(clock.getElapsedTime() * 2.2) * 0.04 : 0);
-    }
-  });
-
-  return (
-    <group ref={ref} onClick={onClick} className="cursor-pointer" position={[0, 0.04, 0]}>
-      {/* Heavy base chassis */}
-      <mesh castShadow>
-        <boxGeometry args={[1.35, 0.18, 0.7]} />
-        <meshStandardMaterial color="#1e293b" roughness={0.2} metalness={0.8} />
-      </mesh>
-      {/* SUV Upper Cabin Cabin */}
-      <mesh position={[-0.05, 0.18, 0]} castShadow>
-        <boxGeometry args={[0.95, 0.24, 0.66]} />
-        <meshPhysicalMaterial color="#8B5CF6" roughness={0.1} metalness={0.9} clearcoat={0.8} />
-      </mesh>
-      {/* Panoramic Glass Roof */}
-      <mesh position={[0.05, 0.31, 0]}>
-        <boxGeometry args={[0.6, 0.08, 0.58]} />
-        <meshPhysicalMaterial color="#00FFC6" transparent opacity={0.35} roughness={0.01} />
-      </mesh>
-      {/* EV Headlights */}
-      <mesh position={[0.68, 0.06, 0.22]}>
-        <boxGeometry args={[0.02, 0.03, 0.1]} />
-        <meshBasicMaterial color="#8B5CF6" />
-      </mesh>
-      <mesh position={[0.68, 0.06, -0.22]}>
-        <boxGeometry args={[0.02, 0.03, 0.1]} />
-        <meshBasicMaterial color="#8B5CF6" />
-      </mesh>
-      {/* Big Wheels */}
-      {[-0.38, 0.38].map((x, i) => 
-        [-0.35, 0.35].map((z, j) => (
-          <mesh key={`${i}-${j}`} position={[x, -0.09, z]} rotation={[0, 0, Math.PI / 2]}>
-            <cylinderGeometry args={[0.18, 0.18, 0.1, 16]} />
-            <meshStandardMaterial color="#050814" roughness={0.4} />
-          </mesh>
-        ))
-      )}
-      {active && <pointLight position={[0, -0.2, 0]} intensity={1.5} color="#8B5CF6" distance={1} />}
-    </group>
-  );
-}
-
-// 🛻 3. Cybertruck Car Model
-function Cybertruck({ active, onClick }) {
-  const ref = useRef();
-  useFrame(({ clock }) => {
-    if (ref.current) {
-      ref.current.position.y = (active ? Math.sin(clock.getElapsedTime() * 2.2) * 0.04 : 0);
-    }
-  });
-
-  return (
-    <group ref={ref} onClick={onClick} className="cursor-pointer" position={[0, 0.05, 0]}>
-      {/* Angular Cyber chassis body */}
-      <mesh castShadow>
-        <boxGeometry args={[1.45, 0.2, 0.72]} />
-        <meshStandardMaterial color="#475569" roughness={0.3} metalness={0.9} />
-      </mesh>
-      {/* Angular Cabin wedge shape */}
-      <mesh position={[-0.1, 0.22, 0]} rotation={[0, 0, 0.05]} castShadow>
-        <boxGeometry args={[0.85, 0.26, 0.68]} />
-        <meshPhysicalMaterial color="#F59E0B" roughness={0.15} metalness={0.8} clearcoat={0.9} />
-      </mesh>
-      {/* Laser Light Bar */}
-      <mesh position={[0.73, 0.08, 0]}>
-        <boxGeometry args={[0.02, 0.02, 0.62]} />
-        <meshBasicMaterial color="#ffffff" />
-      </mesh>
-      {/* Cyber Tires */}
-      {[-0.42, 0.42].map((x, i) => 
-        [-0.37, 0.37].map((z, j) => (
-          <mesh key={`${i}-${j}`} position={[x, -0.1, z]} rotation={[0, 0, Math.PI / 2]}>
-            <cylinderGeometry args={[0.2, 0.2, 0.12, 12]} />
-            <meshStandardMaterial color="#050814" roughness={0.6} />
-          </mesh>
-        ))
-      )}
-      {active && <pointLight position={[0, -0.22, 0]} intensity={1.5} color="#F59E0B" distance={1} />}
-    </group>
-  );
-}
+import CarModel from '../three/CarModel';
 
 // 🅿 Individual Parking Slot Bay containing a custom car
 function ParkingBaySlot({ position, label, status, selected, children, onSelect }) {
@@ -300,7 +158,16 @@ function ParkingScene() {
         status="occupied" 
         selected={selectedCar === 1}
       >
-        <SportsCoupe active={selectedCar === 1} onClick={() => setSelectedCar(1)} />
+        <CarModel 
+          scale={0.78} 
+          rotation={[0, Math.PI / 2, 0]} 
+          bodyColor="#00D9FF" 
+          headlightsActive={selectedCar === 1} 
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedCar(1);
+          }} 
+        />
       </ParkingBaySlot>
 
       {/* 🅿 SLOT A02: EV SUV (Charging) */}
@@ -310,7 +177,16 @@ function ParkingScene() {
         status="charging" 
         selected={selectedCar === 2}
       >
-        <EVSUV active={selectedCar === 2} onClick={() => setSelectedCar(2)} />
+        <CarModel 
+          scale={0.78} 
+          rotation={[0, Math.PI / 2, 0]} 
+          bodyColor="#8B5CF6" 
+          headlightsActive={selectedCar === 2} 
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedCar(2);
+          }} 
+        />
       </ParkingBaySlot>
 
       {/* 🅿 SLOT A03: Cybertruck */}
@@ -320,7 +196,16 @@ function ParkingScene() {
         status="vip" 
         selected={selectedCar === 3}
       >
-        <Cybertruck active={selectedCar === 3} onClick={() => setSelectedCar(3)} />
+        <CarModel 
+          scale={0.78} 
+          rotation={[0, Math.PI / 2, 0]} 
+          bodyColor="#F59E0B" 
+          headlightsActive={selectedCar === 3} 
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedCar(3);
+          }} 
+        />
       </ParkingBaySlot>
 
       {/* EV Station node */}

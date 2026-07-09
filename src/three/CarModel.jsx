@@ -46,6 +46,7 @@ function ProceduralCar({
   headlightsActive = true,
   brakeLightsActive = false,
   headlightBreathingIntensity = 1.0,
+  bodyColor = '#09090B',
 }) {
   const neonColor = '#00E5FF';
 
@@ -65,7 +66,7 @@ function ProceduralCar({
         {/* Main Body */}
         <mesh position={[0, 0.1, 0]}>
           <boxGeometry args={[2.3, 0.22, 1.1]} />
-          <meshStandardMaterial color="#09090B" roughness={0.25} metalness={0.9} />
+          <meshStandardMaterial color={bodyColor} roughness={0.25} metalness={0.9} />
         </mesh>
         
         {/* Cabin Roof - Panoramic Glass */}
@@ -168,6 +169,7 @@ function GLTFCar({
   headlightsActive = true,
   brakeLightsActive = false,
   headlightBreathingIntensity = 1.0,
+  bodyColor = '#09090B',
 }) {
   const gltf = useGLTF('/models/electric_sedan.glb');
 
@@ -194,7 +196,7 @@ function GLTFCar({
           name.includes('chassis')
         ) {
           child.material = new THREE.MeshStandardMaterial({
-            color: '#09090B',
+            color: bodyColor,
             metalness: 0.95,
             roughness: 0.25,
             envMapIntensity: 2.2,
