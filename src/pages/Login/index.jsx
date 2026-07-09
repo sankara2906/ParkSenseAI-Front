@@ -23,7 +23,8 @@ import {
   X,
   User,
   Phone,
-  Car
+  Car,
+  UserPlus
 } from 'lucide-react';
 
 // Count-up animated number component for Awwwards-level polish
@@ -648,9 +649,10 @@ export default function Login({ navigate }) {
             <span className="flex items-center gap-1.5"><LockKeyhole size={10} className="text-[#00FFC6]" /> Enterprise Security Enabled</span>
             <button 
               onClick={() => setShowCreateModal(true)} 
-              className="text-[#00D9FF] hover:underline font-bold flex items-center gap-1"
+              className="text-[#00D9FF] hover:underline font-bold flex items-center gap-1.5 text-[10.5px] transition-all duration-200 hover:scale-105"
             >
-              Create Account →
+              <UserPlus size={12} className="text-[#00FFC6]" />
+              <span>Create Account</span>
             </button>
           </div>
 
