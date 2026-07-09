@@ -66,8 +66,8 @@ function AnimatedNumber({ value, duration = 1500, suffix = "" }) {
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 export default function Login({ navigate }) {
-  const [email, setEmail] = useState('admin@parksense.ai');
-  const [password, setPassword] = useState('password');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [authStatus, setAuthStatus] = useState(''); // '' | 'authenticating' | 'verified'
