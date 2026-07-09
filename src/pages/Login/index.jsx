@@ -616,6 +616,17 @@ export default function Login({ navigate }) {
               )}
             </AnimatePresence>
 
+            <div className="text-center font-mono text-[10px] text-slate-400 pt-1">
+              New to ParkSense AI?{' '}
+              <button 
+                type="button"
+                onClick={() => setShowCreateModal(true)}
+                className="text-[#00D9FF] hover:text-[#00FFC6] hover:underline font-bold transition-all duration-200 cursor-pointer border-none bg-transparent"
+              >
+                Create Account
+              </button>
+            </div>
+
             <div className="relative flex py-1 items-center">
               <div className="flex-grow border-t border-white/5"></div>
               <span className="flex-shrink mx-4 text-[8px] font-mono text-slate-500 uppercase tracking-widest">──────── OR ────────</span>
@@ -647,13 +658,7 @@ export default function Login({ navigate }) {
           {/* Left panel footer */}
           <div className="flex justify-between items-center text-[8.5px] font-mono text-slate-500 pt-4 border-t border-white/5">
             <span className="flex items-center gap-1.5"><LockKeyhole size={10} className="text-[#00FFC6]" /> Enterprise Security Enabled</span>
-            <button 
-              onClick={() => setShowCreateModal(true)} 
-              className="text-[#00D9FF] hover:underline font-bold flex items-center gap-1.5 text-[10.5px] transition-all duration-200 hover:scale-105"
-            >
-              <UserPlus size={12} className="text-[#00FFC6]" />
-              <span>Create Account</span>
-            </button>
+            <span className="text-slate-600">v2.0.0-Prod</span>
           </div>
 
         </div>
