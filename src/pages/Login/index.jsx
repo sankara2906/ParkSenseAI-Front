@@ -546,6 +546,7 @@ export default function Login({ navigate }) {
                       <input 
                         type="email" 
                         required
+                        autoComplete="off"
                         placeholder="name@parksense.ai"
                         value={email}
                         onChange={e => setEmail(e.target.value)}
@@ -566,6 +567,7 @@ export default function Login({ navigate }) {
                       <input 
                         type={showPassword ? "text" : "password"}
                         required
+                        autoComplete="new-password"
                         placeholder="••••••••"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
