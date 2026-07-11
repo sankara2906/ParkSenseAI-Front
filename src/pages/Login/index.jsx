@@ -471,9 +471,27 @@ export default function Login({ navigate }) {
           {/* Logo & Headings */}
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <div className="w-8.5 h-8.5 rounded-lg bg-[#00D9FF]/10 border border-[#00D9FF]/30 flex items-center justify-center shadow-[0_0_15px_rgba(0,217,255,0.1)]">
-                <Cpu className="text-[#00D9FF]" size={16} strokeWidth={2} />
-              </div>
+              <svg viewBox="0 0 100 100" className="w-7 h-7 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* The main P frame */}
+                <path d="M40 25 H65 C78 25, 78 50, 65 50 H40 V25 Z" stroke="#00D9FF" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M40 25 V75 L48 65 H40" stroke="#00D9FF" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Inner P detail */}
+                <path d="M48 33 H60 C68 33, 68 42, 60 42 H48 V33 Z" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Left circuit nodes */}
+                <path d="M40 33 H22" stroke="#00D9FF" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="20" cy="33" r="4.5" fill="#00D9FF" />
+                <path d="M40 45 H16" stroke="#00D9FF" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="14" cy="45" r="4.5" fill="#00D9FF" />
+                <path d="M40 57 H22" stroke="#00D9FF" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="20" cy="57" r="4.5" fill="#00D9FF" />
+                {/* Top circuit nodes */}
+                <path d="M48 25 V12" stroke="#00D9FF" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="48" cy="10" r="4.5" fill="#00D9FF" />
+                <path d="M60 25 V8" stroke="#00D9FF" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="60" cy="6" r="4.5" fill="#00D9FF" />
+                <path d="M72 27 V14" stroke="#00D9FF" strokeWidth="4" strokeLinecap="round" />
+                <circle cx="72" cy="12" r="4.5" fill="#00D9FF" />
+              </svg>
               <span className="font-heading font-extrabold text-sm tracking-tight text-white uppercase">
                 PARKSENSE <span className="text-[#00D9FF]">AI</span>
               </span>
